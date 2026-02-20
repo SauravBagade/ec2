@@ -31,6 +31,19 @@ services:
     networks:
       - ec2-net
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ec2-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - ec2-net
+
 volumes:
   db_data:
 
