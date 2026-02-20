@@ -4,7 +4,7 @@ services:
 
   mariadb:
     image: mariadb:10.6
-    container_name: easycrud-db
+    container_name: ec2-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: Saurav123

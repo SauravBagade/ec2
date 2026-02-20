@@ -14,7 +14,7 @@ RUN rm -f src/main/resources/application.properties && \
 RUN mvn clean package -DskipTests
 
 # Final image to run the app
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # Copy the built jar from previous stage
