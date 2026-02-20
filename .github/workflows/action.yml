@@ -1,18 +1,14 @@
 name: Deploy EasyCRUD to EC2
-
-on:
-push:
+on: null
+push: null
 branches:
-- main
-
-jobs:
-deploy:
+  - main
+jobs: null
+deploy: null
 runs-on: ubuntu-latest
-
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
-
   - name: Create SSH key
     run: |
       echo "-----BEGIN RSA PRIVATE KEY-----
@@ -43,10 +39,9 @@ steps:
       ntLZg26MA/Rhs5kXAkSVyjGzjrAwpU4NsQlJSq2jIHc88onfJ6pfLWM9
       -----END RSA PRIVATE KEY-----" > saurav.pem
       chmod 600 saurav.pem
-
   - name: Deploy to EC2
     run: |
-      ssh -o StrictHostKeyChecking=no -i saurav.pem ubuntu@54.91.218.2 << 'EOF'
+      ssh -o StrictHostKeyChecking=no -i saurav.pem ubuntu@54.91.218.2 << 'EO F'
         cd ~/project
         git pull origin main
         docker compose down
