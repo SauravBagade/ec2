@@ -9,6 +9,7 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
+```
 steps:
   - name: Checkout code
     uses: actions/checkout@v4
@@ -29,3 +30,4 @@ steps:
         docker compose up -d --build
         echo "Remove unused images"
         docker image prune -f
+```
