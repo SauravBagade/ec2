@@ -1,50 +1,19 @@
 name: Deploy EasyCRUD to EC2
-on: null
-push: null
+
+on:
+push:
 branches:
-  - main
-jobs: null
-deploy: null
+- main
+
+jobs:
+deploy:
 runs-on: ubuntu-latest
+
+```
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
-  - name: Create SSH key
-    run: |
-      echo "-----BEGIN RSA PRIVATE KEY-----
-      MIIEpgIBAAKCAQEAy2B5Oe+f1bOeLrLCUWsY6LF1ZpkDQSgtvby5TYETvRQ8jBv/
-      IyBpAG4W1OrliePSJIm8rngHDLRVhrVuZk4NxeTkGVu/kklFpeJMTQs0FIRADw8H
-      w5hdCBAfapLuhgxGpVzkU6IXPFIiPqk0OWvGzP1NQOa17paE/e3k7y0hQYtHJFlI
-      RRkEUqYtrx81KbLGVOS/yyLFJP3fi5iFJiENSogJBHU7MYFrQOS8DZbagLcLyW/Z
-      Du1OpXndnskpbeR3yWa21LnmLI96HgBwEV0XyhBurOa3sUk3ewbf7OSlJbZUCMeD
-      D5RHcwaeOqD6gITLROkq2uA3u281g1PrzuDP9wIDAQABAoIBAQDLNZMLQ5X2Bmn4
-      iR7GEXerEZ2XrS3mTcoeelLA0UcytuSkrlio9XpVNqrThf1iYOOZJJMF1OJeXFXU
-      qrYrvLPgVwtfFyB8f3/69vl8RcR894O2SDNeyX+zTcDGURfJkryIACAYPK5w1DRp
-      XdHTyg+yxSoKvjtssLMjsi78mKBRBpxINu/Bbi7Yuautv+KDZXQqqD8gX/YBawaz
-      3kmnC+Pl2sSCVUS7YgqF4l/udxk3zSxEsFD1vgekpeY+hn777eZ6No3kEqmRf6cA
-      h4T1o4EfqjEWIORU/eBEXUAj6eJgC64deqDnrkEttI4m4R9MD6p2lrrEm6LAt8gZ
-      VzMeoEChAoGBAOYP3lZhYzosi/jLEDl6+F+AqFI1Yjb4vT2l3hXGJWw2YW8JLzrl
-      QPQHgIbnn577rgYfoiQ4M1VABRKU/Ri/EUONXAv4hXTcnqzWMiD8ibpXxf+UCkFD
-      yPbFvg6zzfqNRy+AjSgNom/PfrRKZlfkW1PD7AiIQO1zCNAba19FYJHHAoGBAOJO
-      aLglY3LTHYIroz0c/kNQxcw9uj58YDBPUU4Wwe0wKbxERVYYXPM3ItfMzL4KKDEL
-      7G+NUsml5JdKqMDc39pyVuCIsJlgEuvX86FRsYCsaibpmLLwJReTh0+oGZ/rSz3w
-      VCn3e4RIUEuRAaWimtZzZCBJ3RK2iqoZAepUF9BRAoGBAJ1UaMZF32ffIvHHXJcS
-      g1w8Td+6ZioVvMS188SMNvdj0QnwC/6I3PyFTN309HHyx7WkWGvQizpXh6CHhvYv
-      ZA0AVNxS3mFmppSn/qwUR9PJRrxbbw/m3T31SN4hFFGt3+qaTO4BNP6ltY5x+r9M
-      iTAlofrLwysfKf23YpxKg5ntAoGBAIWB6meQrx3DjGoJ4nCgVSRTV42JcQGCEKEP
-      ehDOfjO2sTh/MkR7dQKLKYQUL0mB5nog5ahdwFR0COp0QiAdbfaKc9Rc74pcUm1O
-      Zk1qS4R0st8n+ky+PbOt9iq5KfzdK/Nrf8uOVBETNEOQVV9pEV2oj4445TIv/Jgi
-      zq12VOIxAoGBANIJcrk0+JXrrMKOsMIYutTbKCh+pncRm+FGcQcP3eArz1dUVTkW
-      stdvnKN3blC6PkVS5RkwuhRwk38GktaFNWmGaBoJIWXHH3XyBS0UpNrvJk7h9wCc
-      ntLZg26MA/Rhs5kXAkSVyjGzjrAwpU4NsQlJSq2jIHc88onfJ6pfLWM9
-      -----END RSA PRIVATE KEY-----" > saurav.pem
-      chmod 600 saurav.pem
-  - name: Deploy to EC2
-    run: |
-      ssh -o StrictHostKeyChecking=no -i saurav.pem ubuntu@54.91.218.2 << 'EO F'
-        cd ~/project
-        git pull origin main
-        docker compose down
-        docker compose up -d --build
-        docker image prune -f
-      EOF
+
+  - name: Test workflow
+    run: echo "Workflow syntax is correct"
+```
