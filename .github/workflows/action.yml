@@ -1,4 +1,3 @@
----
 name: Deploy EasyCRUD to EC2
 on: null
 push: null
