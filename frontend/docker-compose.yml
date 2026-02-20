@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ec2-frontend
+    ports:
+      - "80:80"
+    restart: always
+
